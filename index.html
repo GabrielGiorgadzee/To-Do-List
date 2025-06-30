@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-Do App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.4s ease forwards",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+    <div
+      class="bg-gray-800/80 backdrop-blur-md w-full max-w-md rounded-2xl shadow-2xl p-6 space-y-4"
+    >
+      <h1 class="text-3xl font-bold text-indigo-400 text-center">
+        Add Your Daily Tasks
+      </h1>
+
+      <div class="flex">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Add new task..."
+          class="flex-grow px-4 py-3 bg-gray-700 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        />
+        <button
+          id="add-btn"
+          class="bg-indigo-500 text-white px-4 py-3 rounded-r-lg hover:bg-indigo-600 transition font-semibold"
+        >
+          Add
+        </button>
+      </div>
+
+      <div class="flex justify-center gap-2">
+        <button
+          class="filter-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 hover:bg-indigo-500 hover:text-white transition"
+          data-filter="all"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 hover:bg-indigo-500 hover:text-white transition"
+          data-filter="active"
+        >
+          Active
+        </button>
+        <button
+          class="filter-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 hover:bg-indigo-500 hover:text-white transition"
+          data-filter="completed"
+        >
+          Done
+        </button>
+      </div>
+
+      <ul id="todo-list" class="space-y-3"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
